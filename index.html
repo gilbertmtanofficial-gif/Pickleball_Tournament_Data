@@ -141,10 +141,61 @@ th:nth-child(2),td:nth-child(2){text-align:left}
 .tnum{font-size:min(30vw,180px);font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
 .tbox.over .tnum{color:var(--acc)}
 .rules li{margin:6px 0}
+.pill{margin-left:auto;border:0;border-radius:20px;padding:5px 11px;font:inherit;font-size:12px;font-weight:600;background:#ffffff2e;color:inherit;cursor:pointer}
+.pill.err{background:#dc2626;color:#fff}
+pre.code{background:var(--soft);padding:10px;border-radius:10px;overflow:auto;font-size:12px;margin:8px 0}
+details summary{cursor:pointer;color:var(--pri);font-weight:600;margin:10px 0}
+ol.small li{margin:6px 0}
+
+/* ---------- Court view ---------- */
+.sbtn.on{background:var(--acc);color:#14201b}
+.banner.info{background:#ffffff1c;color:#fff;font-weight:500}
+.arena{flex:1;display:flex;gap:8px;padding:0 8px 8px;min-height:0}
+.arena.port{flex-direction:column}
+.panel{flex:0 0 clamp(150px,21%,260px);display:flex;flex-direction:column;gap:8px;border-radius:16px;padding:10px;background:#11241f;border:3px solid transparent;min-width:0;transition:background .2s}
+.panel.p0{border-color:var(--a)}.panel.p1{border-color:var(--b)}
+.panel.serving{background:var(--acc);color:#14201b}
+.panel.serving .badge{background:#14201b;color:var(--acc)}
+.panel.serving .rally{background:#14201b14;color:#14201b}
+.panel.serving .sbtn{background:#14201b1f;color:#14201b}
+.pteam{display:flex;align-items:center;gap:4px;font-weight:700;font-size:14px;min-width:0}
+.pteam .av{width:30px;height:30px;font-size:11px}
+.pteam span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-left:4px}
+.panel .badge{align-self:flex-start}
+.pbtns{display:flex;flex-direction:column;gap:6px}
+.pbtns .sbtn{font-size:13px;padding:9px 8px}
+.arena.port .panel{flex:0 0 auto;display:grid;grid-template-columns:1fr minmax(110px,38%);grid-template-areas:"team score" "badge score" "btns score";gap:6px 10px;align-items:center;padding:8px 10px}
+.arena.port .pteam{grid-area:team}.arena.port .badge{grid-area:badge}.arena.port .rally{grid-area:score;min-height:96px}.arena.port .pbtns{grid-area:btns;flex-direction:row;flex-wrap:wrap}
+.arena.port .pbtns .sbtn{flex:1}
+.arena.port .big{font-size:clamp(48px,13vmin,96px)}
+.pcbox{flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;container-type:size}
+.pc{position:relative;background:#2f7f52;outline:3px solid #fff;box-shadow:0 0 0 14px #1d5236,0 8px 30px #000a;border-radius:2px}
+.pc.land{aspect-ratio:44/20;width:min(calc(100cqw - 32px),calc((100cqh - 32px) * 2.2))}
+.pc.port{aspect-ratio:20/44;width:min(calc(100cqw - 32px),calc((100cqh - 32px) * 20 / 44))}
+.zone{position:absolute;box-shadow:inset 0 0 0 1.5px #ffffffd9}
+.kit{background:#3e9a67;display:flex;align-items:center;justify-content:center}
+.kit span{font-size:10px;font-weight:800;letter-spacing:3px;color:#ffffff59}
+.pc.land .kit span{writing-mode:vertical-rl}
+.net{position:absolute;background:#e9eef0;border-radius:3px;box-shadow:0 0 8px #000a;z-index:1}
+.sarrow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.sarrow line{stroke:var(--acc);stroke-width:4;vector-effect:non-scaling-stroke;stroke-dasharray:2 10;stroke-linecap:round;animation:servedash .7s linear infinite}
+@keyframes servedash{to{stroke-dashoffset:-12}}
+.pl{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;z-index:3;text-align:center;color:#fff;pointer-events:none;padding:2px}
+.avw{position:relative}
+.pl .av{width:clamp(34px,13cqmin,88px);height:clamp(34px,13cqmin,88px);font-size:clamp(12px,4cqmin,26px);box-shadow:0 0 0 3px #fff}
+.pl.t0 .av{box-shadow:0 0 0 3px var(--a)}.pl.t1 .av{box-shadow:0 0 0 3px var(--b)}
+.pl.srv .av{box-shadow:0 0 0 4px var(--acc),0 0 22px 4px var(--acc)}
+.pl.rcv .av{outline:3px dashed #fff;outline-offset:4px}
+.ball{position:absolute;right:-5px;bottom:-3px;width:clamp(12px,3.5cqmin,22px);height:clamp(12px,3.5cqmin,22px);border-radius:50%;background:var(--acc);box-shadow:0 0 0 2px #14201b}
+.pn{font-size:clamp(11px,3cqmin,17px);font-weight:700;background:#000000a0;padding:1px 7px;border-radius:6px;max-width:96%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tagS,.tagR{font-size:clamp(9px,2.2cqmin,12px);font-weight:900;letter-spacing:.5px;padding:1px 7px;border-radius:6px}
+.tagS{background:var(--acc);color:#14201b}.tagR{background:#fff;color:#14201b}
+.call small{text-transform:none;letter-spacing:.3px}
+@media (max-width:640px){.sbar{flex-wrap:wrap}.call{order:-1;flex-basis:100%;font-size:38px}.sbar .sbtn{flex:1;padding:9px 6px;font-size:14px}}
 </style>
 </head>
 <body>
-<header class="top"><span class="logo">PB</span><h1>Pickleball Club</h1></header>
+<header class="top"><span class="logo">PB</span><h1>Pickleball Club</h1><button id="cloudPill" class="pill hidden" data-act="tab" data-v="settings"></button></header>
 <main id="view"></main>
 <nav class="tabs">
   <button data-act="tab" data-v="events"><span>📋</span>Events</button>
@@ -164,7 +215,7 @@ const KEY='pickleball_club_v1';
 const blank=()=>({players:[],events:[],bookings:[],quick:null,quickHist:[]});
 let S=load();
 function load(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.players))return Object.assign(blank(),d);}catch(e){}return blank();}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){toast('Storage is full — export a backup and remove some photos.');}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){toast('Storage is full — export a backup and remove some photos.');}if(typeof cloudQueue==='function')cloudQueue();}
 const uid=()=>Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-4);
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -403,7 +454,7 @@ function getGame(ctx){if(ctx.quick)return S.quick;const e=getEv(ctx.e);return e&
 function newLive(g){const dbl=g.sides[0].length>1;return{score:[0,0],serving:0,serverNum:dbl?2:0,server:g.sides[0][0],pos:[g.sides[0].slice(),g.sides[1].slice()],to:[0,0],med:[0,0],flipped:false,midDone:false,midPrompt:false,winner:null,hist:[]};}
 function openScorer(ctx){const g=getGame(ctx);if(!g)return;if(!g.live)g.live=newLive(g);SC={ctx};$('#scorer').classList.remove('hidden');document.body.classList.add('noscroll');wake(true);drawScorer();}
 function closeScorer(){$('#scorer').classList.add('hidden');document.body.classList.remove('noscroll');SC=null;wake(false);render();}
-function snap(L){const c=JSON.parse(JSON.stringify(L));delete c.hist;L.hist.push(JSON.stringify(c));if(L.hist.length>300)L.hist.shift();}
+function snap(L){const c=JSON.parse(JSON.stringify(L));delete c.hist;L.hist.push(JSON.stringify(c));if(L.hist.length>80)L.hist.shift();}
 const midOf=to=>Math.ceil(to/2); // 11→6, 15→8, 21→11
 const maxTO=to=>to>=21?3:2;
 function rally(t){const g=getGame(SC.ctx),L=g.live;if(L.winner!=null)return;snap(L);const o=1-t,dbl=L.pos[0].length>1;
@@ -413,26 +464,49 @@ function rally(t){const g=getGame(SC.ctx),L=g.live;if(L.winner!=null)return;snap
   else{if(dbl&&L.serverNum===1){L.serverNum=2;L.server=L.pos[L.serving].find(p=>p!==L.server);} // second server
     else{L.serving=t;L.serverNum=dbl?1:0;L.server=L.pos[t][0];}} // side out: right-court player serves
   if(g.status!=='done')g.status='live';save();if(navigator.vibrate)navigator.vibrate(30);drawScorer();}
-function drawScorer(){if(!SC)return;const g=getGame(SC.ctx);if(!g){closeScorer();return;}const L=g.live,dbl=L.pos[0].length>1,s=L.serving,o=1-s;
-  const call=dbl?`${L.score[s]}-${L.score[o]}-${L.serverNum}`:`${L.score[s]}-${L.score[o]}`,fresh=!L.hist.length,mt=maxTO(g.gameTo);
-  const serverRight=L.score[s]%2===0,order=L.flipped?[1,0]:[0,1];
-  const half=(t,idx)=>{const isS=t===s,recv=isS?null:L.pos[t][dbl?(serverRight?0:1):0];
-    const boxes=dbl?(idx===0?[[0,'RIGHT'],[1,'LEFT']]:[[1,'LEFT'],[0,'RIGHT']]):[[0,serverRight?'RIGHT':'LEFT']];
-    return `<section class="half t${t} ${isS?'serving':''}">
-     <div class="hhead"><span class="tname">${esc(teamLabel(g.sides[t]))}</span><span class="badge">${isS?(dbl?'SERVING · SERVER '+L.serverNum:'SERVING'):'RECEIVING'}</span></div>
-     <button class="rally" data-act="rally" data-t="${t}"><span class="big">${L.score[t]}</span><span class="hint2">Tap if this side won the rally</span></button>
-     <div class="spots ${dbl?'':'one'}">${boxes.map(([k,lab])=>{const pid=L.pos[t][k],cls=isS&&pid===L.server?'srv':pid===recv?'rcv':'';
-       return `<div class="spot ${cls}"><small>${lab}</small>${avatar(pid)}<span class="nm">${esc(pname(pid))}${cls==='srv'?`<em>● SERVER${dbl?' '+L.serverNum:''}</em>`:cls==='rcv'?'<em>RECEIVER</em>':''}</span></div>`;}).join('')}</div>
-     <div class="hfoot"><button class="sbtn" data-act="timeout" data-t="${t}" ${L.to[t]>=mt||L.winner!=null?'disabled':''}>⏱ Timeout (${mt-L.to[t]} left)</button>
-     ${fresh?`<button class="sbtn" data-act="firstServe" data-t="${t}" ${isS?'disabled':''}>${isS?'Serves first ✓':'Serve first'}</button>${dbl?`<button class="sbtn" data-act="swapPos" data-t="${t}">⇄ Swap players</button>`:''}`:''}</div></section>`;};
+const KIT=15/44*100; // service area = 15 ft of each 22 ft half; kitchen = 7 ft
+let followServer=localStorage.getItem('pb_follow')==='1';
+const zoneRect=(end,side)=>{const top=end===0?side==='L':side==='R';return{x:end===0?0:100-KIT,y:top?0:50,w:KIT,h:50};};
+const TR=(r,p)=>p?{x:100-r.y-r.h,y:r.x,w:r.h,h:r.w}:r; // landscape → portrait
+const sty=r=>`left:${r.x}%;top:${r.y}%;width:${r.w}%;height:${r.h}%`;
+const ctr=r=>[r.x+r.w/2,r.y+r.h/2];
+function drawScorer(){if(!SC)return;const g=getGame(SC.ctx);if(!g){closeScorer();return;}
+  const L=g.live,dbl=L.pos[0].length>1,s=L.serving,o=1-s,fresh=!L.hist.length,mt=maxTO(g.gameTo);
+  const portrait=matchMedia('(orientation: portrait)').matches;
+  // doubles: server stands where they are (right after a side out, switching after each point); singles: right when own score is even
+  const rs=dbl?(L.server===L.pos[s][0]?'R':'L'):(L.score[s]%2===0?'R':'L'),serverRight=rs==='R';
+  const call=dbl?`${L.score[s]}-${L.score[o]}-${L.serverNum}`:`${L.score[s]}-${L.score[o]}`;
+  const order=followServer?[o,s]:(L.flipped?[1,0]:[0,1]),endOf=t=>order.indexOf(t);
+  // where every player is standing
+  const spots=[];[0,1].forEach(t=>{if(dbl)spots.push({pid:L.pos[t][0],t,side:'R'},{pid:L.pos[t][1],t,side:'L'});else spots.push({pid:L.pos[t][0],t,side:rs});});
+  const srv=spots.find(p=>p.t===s&&p.pid===L.server),rcv=spots.find(p=>p.t===o&&p.side===rs);
+  let court='';
+  [0,1].forEach(end=>['R','L'].forEach(side=>court+=`<div class="zone" style="${sty(TR(zoneRect(end,side),portrait))}"></div>`));
+  court+=`<div class="zone kit" style="${sty(TR({x:KIT,y:0,w:50-KIT,h:100},portrait))}"><span>KITCHEN</span></div><div class="zone kit" style="${sty(TR({x:50,y:0,w:50-KIT,h:100},portrait))}"><span>KITCHEN</span></div>`;
+  court+=`<div class="net" style="${sty(TR({x:49.4,y:-5,w:1.2,h:110},portrait))}"></div>`;
+  if(srv&&rcv){const A=ctr(TR(zoneRect(endOf(s),srv.side),portrait)),B=ctr(TR(zoneRect(endOf(o),rcv.side),portrait)),f=k=>[A[0]+(B[0]-A[0])*k,A[1]+(B[1]-A[1])*k],p=f(.24),q=f(.76);
+    court+=`<svg class="sarrow" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}"/></svg>`;}
+  court+=spots.map(sp=>{const isS=srv&&sp===srv,isR=rcv&&sp===rcv;
+    return `<div class="pl t${sp.t} ${isS?'srv':''} ${isR?'rcv':''}" style="${sty(TR(zoneRect(endOf(sp.t),sp.side),portrait))}">
+      <div class="avw">${avatar(sp.pid)}${isS?'<i class="ball"></i>':''}</div><span class="pn">${esc(pname(sp.pid))}</span>
+      ${isS?`<span class="tagS">SERVER${dbl?' '+L.serverNum:''}</span>`:isR?'<span class="tagR">RECEIVER</span>':''}</div>`;}).join('');
+  const panel=t=>{const isS=t===s;return `<div class="panel p${t} ${isS?'serving':''}">
+    <div class="pteam">${g.sides[t].map(id=>avatar(id)).join('')}<span>${esc(teamLabel(g.sides[t]))}</span></div>
+    <span class="badge">${isS?(dbl?'SERVING · SERVER '+L.serverNum:'SERVING'):'RECEIVING'}</span>
+    <button class="rally" data-act="rally" data-t="${t}"><span class="big">${L.score[t]}</span><span class="hint2">Tap if rally won</span></button>
+    <div class="pbtns"><button class="sbtn" data-act="timeout" data-t="${t}" ${L.to[t]>=mt||L.winner!=null?'disabled':''}>⏱ Timeout · ${mt-L.to[t]} left</button>
+    ${fresh?`<button class="sbtn" data-act="firstServe" data-t="${t}" ${isS?'disabled':''}>${isS?'Serves first ✓':'Serve first'}</button>${dbl?`<button class="sbtn" data-act="swapPos" data-t="${t}">⇅ Swap players</button>`:''}`:''}</div></div>`;};
   $('#scorer').innerHTML=`<div class="sbar"><button class="sbtn" data-act="scClose">✕</button><button class="sbtn" data-act="undo" ${fresh?'disabled':''}>↶ Undo</button>
-   <div class="call">${call}<small>${dbl?'SERVER – RECEIVER – SERVER #':'SERVER – RECEIVER'} · TO ${g.gameTo}</small></div>
-   <button class="sbtn" data-act="swapEnds">⇆ Swap sides</button><button class="sbtn" data-act="scMenu">⋯</button></div>
-   ${L.midPrompt?`<div class="banner">🔄 Switch ends — a team reached ${midOf(g.gameTo)}.<span class="grow"></span><button class="sbtn" data-act="swapEnds">Swap sides now</button><button class="sbtn" data-act="dismissMid">Not now</button></div>`:''}
-   ${fresh?`<div class="banner" style="background:#ffffff1c;color:#fff;font-weight:500">Choose who serves first and each team's starting sides, then tap a score to record rallies. Doubles starts at 0-0-2.</div>`:''}
-   <div class="courtwrap">${order.map((t,i)=>half(t,i)).join('')}</div>
+    <div class="call">${call}<small>${esc(pname(L.server))} serves from the ${serverRight?'right':'left'} · to ${g.gameTo}</small></div>
+    <button class="sbtn ${followServer?'on':''}" data-act="followServer" title="Keep the serving team on the same side">${followServer?'👁 Server view':'👁 Court view'}</button>
+    <button class="sbtn" data-act="swapEnds" ${followServer?'disabled':''}>⇆ Ends</button><button class="sbtn" data-act="scMenu">⋯</button></div>
+   ${L.midPrompt?`<div class="banner">🔄 Switch ends — a team reached ${midOf(g.gameTo)}.<span class="grow"></span><button class="sbtn" data-act="swapEnds">Swap ends now</button><button class="sbtn" data-act="dismissMid">Not now</button></div>`:''}
+   ${fresh?`<div class="banner info">Pick who serves first and swap players into their starting boxes, then tap a score each rally. Doubles starts at 0-0-2.</div>`:''}
+   <div class="arena ${portrait?'port':'land'}">${panel(order[0])}<div class="pcbox"><div class="pc ${portrait?'port':'land'}">${court}</div></div>${panel(order[1])}</div>
    ${L.winner!=null?`<div class="winbox"><div>🏆</div><h2>${esc(teamLabel(g.sides[L.winner]))} win!</h2><div class="fs">${L.score[L.winner]} – ${L.score[1-L.winner]}</div>
     <div class="row" style="justify-content:center"><button class="btn" data-act="undo">↶ Undo last rally</button><button class="btn pri" data-act="saveResult">Save result</button></div></div>`:''}`;}
+ACT.followServer=()=>{followServer=!followServer;try{localStorage.setItem('pb_follow',followServer?'1':'0');}catch(e){}drawScorer();toast(followServer?'Serving team always shown at the bottom / right':'Showing the real court ends');};
+(()=>{const mq=matchMedia('(orientation: portrait)'),f=()=>{if(SC)drawScorer();};mq.addEventListener?mq.addEventListener('change',f):mq.addListener(f);window.addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(f,150);});})();
 ACT.rally=d=>rally(+d.t);
 ACT.undo=()=>{const L=getGame(SC.ctx).live;if(!L.hist.length)return;const h=L.hist,prev=JSON.parse(h.pop());Object.keys(L).forEach(k=>delete L[k]);Object.assign(L,prev,{hist:h});save();drawScorer();};
 ACT.firstServe=d=>{const L=getGame(SC.ctx).live,t=+d.t;L.serving=t;L.server=L.pos[t][0];L.serverNum=L.pos[t].length>1?2:0;save();drawScorer();};
@@ -539,15 +613,16 @@ ACT.bookingDelete=d=>{if(!confirm('Delete this booking?'))return;S.bookings=S.bo
 
 /* ================= Settings / backup ================= */
 function viewSettings(){return `<h2>More</h2>
-  <div class="card"><b>Backup &amp; move data between devices</b>
-   <p class="muted small">Everything is saved on this device only. To use the same players, photos and events on another tablet or phone, export a backup here and import it there.</p>
+  ${cloudCard()}
+  <div class="card"><b>Backup file</b>
+   <p class="muted small">Data is always kept on this device as well. Export a backup any time for safe keeping, or to copy data to a device without cloud sync.</p>
    <div class="row"><button class="btn pri" data-act="exportData">⬇ Export backup</button><label class="btn" style="margin:0;color:var(--ink)">⬆ Import backup<input type="file" accept="application/json,.json" id="importFile" hidden></label></div></div>
   <div class="card"><b>Pickleball rules used by the scorer</b><ul class="rules small">
    <li><b>Side-out scoring:</b> only the serving side can score. The score is called as <i>server score – receiver score – server number</i>, e.g. 4-2-1.</li>
    <li><b>Start of game:</b> doubles begins at 0-0-2, so the first serving side has only one server.</li>
    <li><b>Serving side wins the rally:</b> they score a point and the server swaps sides with their partner.</li>
    <li><b>Serving side loses the rally:</b> server 1 passes to server 2; after server 2 it's a side out. After a side out, the player in the right-hand court serves first.</li>
-   <li><b>Position:</b> serve from the right when your side's score is even, from the left when odd.</li>
+   <li><b>Position:</b> after every side out the first serve is from the right-hand court, and the server switches courts each time their side scores. In doubles the team's starting server is in the right court whenever the team score is even. In singles you serve from the right when your score is even, the left when odd.</li>
    <li><b>Switch ends</b> when the first side reaches 6 (game to 11), 8 (to 15) or 11 (to 21). The app reminds you and has a Swap sides button any time.</li>
    <li><b>Timeouts:</b> 2 per side per game in games to 11 or 15, 3 in games to 21; 1 minute each. Medical timeout up to 15 minutes. Games are won by 2.</li></ul>
    <p class="muted small">Based on USA Pickleball rules — check your local tournament rules.</p></div>
@@ -555,7 +630,7 @@ function viewSettings(){return `<h2>More</h2>
   <p class="muted small">Storage used: ${(JSON.stringify(S).length/1024).toFixed(0)} KB</p>`;}
 ACT.exportData=()=>{const blob=new Blob([JSON.stringify(S)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`pickleball-backup-${todayISO()}.json`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);};
 function importData(file){const fr=new FileReader();fr.onload=()=>{try{const d=JSON.parse(fr.result);if(!Array.isArray(d.players))throw 0;if(!confirm('Replace all data on this device with this backup?'))return;S=Object.assign(blank(),d);save();render();toast('Backup restored');}catch(e){toast('That file is not a valid backup');}};fr.readAsText(file);}
-ACT.wipe=()=>{if(confirm('Delete ALL players, events and bookings on this device? This cannot be undone.')&&confirm('Are you absolutely sure?')){S=blank();save();render();}};
+ACT.wipe=()=>{if(confirm(CLOUD?'Delete ALL players, events and bookings for EVERY device in this club? This cannot be undone.':'Delete ALL players, events and bookings on this device? This cannot be undone.')&&confirm('Are you absolutely sure?')){S=blank();save();render();}};
 
 /* ================= Global input handlers ================= */
 document.addEventListener('input',e=>{const t=e.target;
@@ -568,7 +643,131 @@ document.addEventListener('change',e=>{const t=e.target;
   if(t.id==='phfile'&&t.files[0])resizeImage(t.files[0]).then(u=>{editPhoto=u;$('#phprev').innerHTML=photoPrev();}).catch(()=>toast('Could not read that image'));
   if(t.id==='importFile'&&t.files[0]){importData(t.files[0]);t.value='';}
   if(t.dataset.q!==undefined){if(t.dataset.q==='to')Q.gameTo=+t.value;else Q.ids[+t.dataset.q]=t.value;}});
+
+/* ================= Cloud sync (free Firebase Realtime Database) ================= */
+const FB_VER='10.12.2',CLOUD_KEY='pb_cloud',SYNC_KEY='pb_synced';
+let CLOUD=(()=>{try{return JSON.parse(localStorage.getItem(CLOUD_KEY));}catch(e){return null;}})();
+let synced={};try{const x=JSON.parse(localStorage.getItem(SYNC_KEY));if(x&&CLOUD&&x.club===CLOUD.club)synced=x.h||{};}catch(e){}
+const cloud={status:'off',msg:'',F:null,app:null,db:null,unsubs:[],timer:null,ready:false};
+let pendingJoin=null;
+const RULES=`{
+  "rules": {
+    "clubs": {
+      "$club": {
+        ".read": "auth != null && $club.length >= 12",
+        ".write": "auth != null && $club.length >= 12"
+      }
+    }
+  }
+}`;
+function hash(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}
+  h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);
+  return (4294967296*(2097151&h2)+(h1>>>0)).toString(36);}
+function persistSynced(){try{localStorage.setItem(SYNC_KEY,JSON.stringify({club:CLOUD&&CLOUD.club,h:synced}));}catch(e){}}
+// Each player / booking / event / game is stored as its own small record, so a rally only uploads one game.
+function flatten(st){const m={};
+  st.players.forEach(p=>m['players/'+p.id]=JSON.stringify(p));
+  st.bookings.forEach(b=>m['bookings/'+b.id]=JSON.stringify(b));
+  st.events.forEach(e=>{const{games,...meta}=e;m[`events/${e.id}/meta`]=JSON.stringify(meta);(games||[]).forEach(g=>m[`events/${e.id}/games/${g.id}`]=JSON.stringify(g));});
+  if(st.quick)m['quick/current']=JSON.stringify(st.quick);
+  if(st.quickHist&&st.quickHist.length)m['quick/history']=JSON.stringify(st.quickHist);
+  return m;}
+function unflatten(m){const st=blank(),ev={};
+  for(const[k,v]of Object.entries(m)){const p=k.split('/');let o;try{o=JSON.parse(v);}catch(e){continue;}
+    if(p[0]==='players')st.players.push(o);else if(p[0]==='bookings')st.bookings.push(o);
+    else if(p[0]==='events'){const e=ev[p[1]]||(ev[p[1]]={games:[]});if(p[2]==='meta')Object.assign(e,o);else e.games.push(o);}
+    else if(k==='quick/current')st.quick=o;else if(k==='quick/history')st.quickHist=o;}
+  st.events=Object.values(ev).filter(e=>e.id).map(e=>{e.games.sort((a,b)=>a.round-b.round||a.court-b.court);return e;});
+  return st;}
+function snapToMap(v,pre='',m={}){if(v==null)return m;if(typeof v==='string'){m[pre]=v;return m;}if(typeof v==='object')for(const k in v)snapToMap(v[k],pre?pre+'/'+k:k,m);return m;}
+// 3-way merge: keep anything changed on this device since the last sync, take everything else from the club.
+function onRemote(remote){const local=flatten(S),out={},push={};let changed=false;
+  new Set([...Object.keys(remote),...Object.keys(local),...Object.keys(synced)]).forEach(k=>{const l=local[k],r=remote[k];
+    const localChanged=(l===undefined?undefined:hash(l))!==synced[k];
+    if(localChanged){if(l!==undefined)out[k]=l;if(l!==r)push[k]=l===undefined?null:l;}
+    else{if(r!==undefined)out[k]=r;if(out[k]!==l)changed=true;}});
+  synced={};Object.keys(out).forEach(k=>synced[k]=hash(out[k]));persistSynced();
+  if(changed){S=unflatten(out);try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}if(tab!=='settings')render();if(SC)drawScorer();}
+  cloud.ready=true;if(Object.keys(push).length)cloudWrite(push);}
+function cloudQueue(){if(!CLOUD||!cloud.ready)return;clearTimeout(cloud.timer);cloud.timer=setTimeout(pushLocal,250);}
+function pushLocal(){const local=flatten(S),push={};
+  Object.keys(local).forEach(k=>{const h=hash(local[k]);if(synced[k]!==h){push[k]=local[k];synced[k]=h;}});
+  Object.keys(synced).forEach(k=>{if(!(k in local)){push[k]=null;delete synced[k];}});
+  persistSynced();if(Object.keys(push).length)cloudWrite(push);}
+function cloudWrite(push){if(!cloud.db)return;cloud.F.update(cloud.F.ref(cloud.db,'clubs/'+CLOUD.club),push).catch(e=>setCloud('error',friendly(e)));}
+function friendly(e){const t=String((e&&(e.code||e.message))||e);
+  if(/operation-not-allowed|admin-restricted/i.test(t))return 'Anonymous sign-in is off. In Firebase: Authentication → Sign-in method → enable Anonymous.';
+  if(/permission/i.test(t))return 'The database rules are blocking access. Paste the rules from the setup steps into Realtime Database → Rules and Publish.';
+  if(/api-key|invalid-api-key/i.test(t))return 'The API key in the Firebase config is not valid — paste the config again.';
+  if(/fetch|import|network|load/i.test(t))return 'Could not reach Firebase — check the internet connection, then tap Reconnect.';
+  return t;}
+function statusText(){return{off:'Not connected',connecting:'Connecting…',online:'✓ Synced',offline:'Offline — changes are saved on this device and will upload when back online',error:'⚠ '+cloud.msg}[cloud.status];}
+function setCloud(st,msg=''){cloud.status=st;cloud.msg=msg;const p=$('#cloudPill');
+  p.classList.toggle('hidden',st==='off');p.classList.toggle('err',st==='error');
+  p.textContent={connecting:'☁ Connecting…',online:'☁ Synced',offline:'☁ Offline',error:'⚠ Sync error'}[st]||'';
+  const el=$('#cloudStatus');if(el)el.textContent=statusText();}
+async function cloudConnect(){if(!CLOUD)return;cloudStop();setCloud('connecting');
+  try{if(!cloud.F){const base=`https://www.gstatic.com/firebasejs/${FB_VER}/`;const[a,b,c]=await Promise.all(['firebase-app.js','firebase-auth.js','firebase-database.js'].map(f=>import(base+f)));cloud.F={...a,...b,...c};}
+    const F=cloud.F;cloud.app=F.initializeApp(CLOUD.config,'pb'+Date.now());
+    await F.signInAnonymously(F.getAuth(cloud.app));
+    cloud.db=F.getDatabase(cloud.app,CLOUD.config.databaseURL);
+    cloud.unsubs.push(F.onValue(F.ref(cloud.db,'.info/connected'),s=>{if(cloud.ready&&cloud.status!=='error')setCloud(s.val()?'online':'offline');}));
+    cloud.unsubs.push(F.onValue(F.ref(cloud.db,'clubs/'+CLOUD.club),snap=>{onRemote(snapToMap(snap.val()));if(cloud.status!=='offline')setCloud('online');},e=>setCloud('error',friendly(e))));
+  }catch(e){setCloud('error',friendly(e));}}
+function cloudStop(){cloud.unsubs.forEach(u=>{try{u();}catch(e){}});cloud.unsubs=[];cloud.ready=false;clearTimeout(cloud.timer);
+  if(cloud.app&&cloud.F)cloud.F.deleteApp(cloud.app).catch(()=>{});cloud.app=null;cloud.db=null;}
+function parseConfig(txt){txt=(txt||'').trim();try{const j=JSON.parse(txt);if(j&&j.apiKey)return j;}catch(e){}
+  const o={};['apiKey','authDomain','databaseURL','projectId','storageBucket','messagingSenderId','appId'].forEach(k=>{const m=txt.match(new RegExp(`${k}\\s*[:=]\\s*["']([^"']+)["']`));if(m)o[k]=m[1];});
+  return o.apiKey&&o.projectId?o:null;}
+const suggestClub=()=>'club-'+Array.from(crypto.getRandomValues(new Uint8Array(10)),b=>'abcdefghjkmnpqrstuvwxyz23456789'[b%31]).join('');
+function joinCloud(c,replace){cloudStop();CLOUD=c;try{localStorage.setItem(CLOUD_KEY,JSON.stringify(c));}catch(e){}synced={};
+  if(replace){S=blank();try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}persistSynced();render();cloudConnect();}
+function cloudCard(){
+  if(CLOUD)return `<div class="card"><b>☁ Cloud sync</b> · <span id="cloudStatus" class="small">${esc(statusText())}</span>
+   <p class="muted small">Club code <b>${esc(CLOUD.club)}</b> · Firebase project ${esc(CLOUD.config.projectId||'')}</p>
+   <p class="small">Every device connected to this club shares players, photos, events, bookings and live scores in real time.</p>
+   <div class="row"><button class="btn pri" data-act="cloudInvite">🔗 Share invite link</button><button class="btn" data-act="cloudReconnect">↻ Reconnect</button><button class="btn danger" data-act="cloudOff">Disconnect this device</button></div>
+   <p class="muted small">Open the invite link on another tablet or phone to join in one tap. Anyone with the link can view and edit this club's data, so share it only with your organisers.</p></div>`;
+  return `<div class="card"><b>☁ Cloud sync — share data across all devices (free)</b>
+   <p class="muted small">Uses a free Google Firebase database (no credit card). Set it up once on one device, then send the invite link to the others.</p>
+   <details><summary>Setup steps (about 10 minutes)</summary><ol class="small">
+    <li>Go to <b>console.firebase.google.com</b>, sign in with Google and click <b>Create a project</b>. Google Analytics can be turned off.</li>
+    <li><b>Build → Authentication → Get started → Sign-in method</b>, choose <b>Anonymous</b> and enable it.</li>
+    <li><b>Build → Realtime Database → Create database</b>, pick location <b>Singapore (asia-southeast1)</b>, start in <b>locked mode</b>.</li>
+    <li>Open the database's <b>Rules</b> tab, replace everything with the rules below, then <b>Publish</b>.</li>
+    <li>Click ⚙ <b>Project settings → General → Your apps → Web (&lt;/&gt;)</b>, register an app (no hosting needed) and copy the <code>firebaseConfig</code> block into the box below.</li>
+    <li>Copy the database URL shown at the top of the Realtime Database page if it isn't in the config.</li></ol>
+    <pre class="code">${esc(RULES)}</pre><button class="btn sm" data-act="copyRules">Copy rules</button></details>
+   <label>Firebase config<textarea id="c_cfg" placeholder="const firebaseConfig = { apiKey: &quot;…&quot;, … };"></textarea></label>
+   <label>Realtime Database URL <small>(if not in the config)</small><input id="c_url" placeholder="https://your-project-default-rtdb.asia-southeast1.firebasedatabase.app"></label>
+   <label>Club code<input id="c_club" value="${suggestClub()}" autocapitalize="off" autocomplete="off"></label>
+   <p class="muted small">The club code works like a password for your club's data — keep it long and random.</p>
+   <label class="chk"><input type="checkbox" id="c_replace"> Join an existing club and replace this device's data (don't upload what's here)</label>
+   ${cloud.status==='error'?`<p class="hint">⚠ ${esc(cloud.msg)}</p>`:''}
+   <div class="row end"><button class="btn pri" data-act="cloudOn">Connect</button></div></div>`;}
+ACT.copyRules=async()=>{try{await navigator.clipboard.writeText(RULES);toast('Rules copied');}catch(e){prompt('Copy these rules:',RULES);}};
+ACT.cloudOn=()=>{const cfg=parseConfig($('#c_cfg').value);if(!cfg)return toast('Could not read the Firebase config — paste the whole firebaseConfig block');
+  const url=$('#c_url').value.trim();if(url)cfg.databaseURL=url;if(!cfg.databaseURL)return toast('Please add the Realtime Database URL');
+  const club=$('#c_club').value.trim().toLowerCase();if(!/^[a-z0-9-]{12,60}$/.test(club))return toast('Club code needs 12+ letters, numbers or dashes');
+  joinCloud({config:cfg,club},$('#c_replace').checked);toast('Connecting…');};
+ACT.cloudReconnect=()=>cloudConnect();
+ACT.cloudOff=()=>{if(!confirm('Disconnect this device from the club? Your data stays on this device; other devices are not affected.'))return;
+  cloudStop();CLOUD=null;synced={};try{localStorage.removeItem(CLOUD_KEY);localStorage.removeItem(SYNC_KEY);}catch(e){}setCloud('off');render();};
+const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64d=s=>decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));
+ACT.cloudInvite=async()=>{const url=location.href.split('#')[0]+'#join='+b64e(JSON.stringify(CLOUD));
+  if(navigator.share){try{await navigator.share({title:'Join our Pickleball Club',url});return;}catch(e){if(e.name==='AbortError')return;}}
+  try{await navigator.clipboard.writeText(url);toast('Invite link copied');}catch(e){prompt('Copy this invite link:',url);}};
+function checkJoin(){const m=location.hash.match(/^#join=(.+)$/);if(!m)return;history.replaceState(null,'',location.pathname+location.search);
+  let c;try{c=JSON.parse(b64d(m[1]));}catch(e){return toast('That invite link is damaged');}
+  if(!c||!c.config||!c.club)return;if(CLOUD&&CLOUD.club===c.club)return toast('Already connected to this club');
+  pendingJoin=c;const has=S.players.length||S.events.length||S.bookings.length;
+  openModal(`<h2>Join club?</h2><p>This device will share players, events, bookings and live scores with club <b>${esc(c.club)}</b>.</p>
+   ${has?`<label class="chk"><input type="checkbox" id="j_replace" checked> Replace the data currently on this device with the club's</label>`:''}
+   <div class="row end"><button class="btn" data-act="closeModal">Cancel</button><button class="btn pri" data-act="joinGo">Join club</button></div>`);}
+ACT.joinGo=()=>{const r=$('#j_replace');closeModal();joinCloud(pendingJoin,r?r.checked:true);tab='events';render();toast('Joining club…');};
+window.addEventListener('hashchange',checkJoin);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&SC)wake(true);});
-render();
+render();checkJoin();if(CLOUD)cloudConnect();
 </script>
 </body>
